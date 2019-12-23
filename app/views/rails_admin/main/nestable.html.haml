@@ -1,0 +1,12 @@
+- #byebug
+#rails_admin_nestable
+  .form-group
+    #tree_nodes.dd{ data: { update_path: nestable_path(model_name: @abstract_model), max_depth: tree_max_depth } }
+      %ol.dd-list
+        = nested_family @tree_nodes
+    %button.btn.btn-primary{ style: 'float: left', type: 'submit' }= t('admin.actions.nestable.update')
+    #result{ style: 'float: left; margin: 7px'}
+
+= stylesheet_link_tag    'rails_admin/rails_admin_nestable'
+= javascript_include_tag 'rails_admin/jquery.nestable'
+= javascript_include_tag 'rails_admin/nestable'
