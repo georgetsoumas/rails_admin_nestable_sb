@@ -11,7 +11,6 @@
         var tree_data = $("#tree_nodes").nestable('serialize');
         var self = $(this);
         self.attr("disabled", true);
-        self.html('Updating');
         $("#result").html("");
         $.ajax ({
             url: tree_url,
@@ -21,7 +20,6 @@
             method: 'POST',
             complete: function(){
                 self.attr("disabled", false);
-                self.html('Update');
             },
             success: function(data){
                 $("#result").html(data);
