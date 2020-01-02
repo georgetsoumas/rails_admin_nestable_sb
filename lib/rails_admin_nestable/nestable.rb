@@ -71,7 +71,13 @@ module RailsAdmin
             end
 
             if request.get?
-              query = list_entries(@model_config, :nestable, false, false).reorder(nil)
+              #byebug
+
+              search_string = params[:search].downcase unless params[:search].nil?
+
+              query = list_entries(@model_config, :nestable, false, false)
+              .where("LOWER(name) LIKE ?", "%#{search_string}%")
+              .reorder(nil)
 
               case @options[:scope].class.to_s
                 when 'Proc'

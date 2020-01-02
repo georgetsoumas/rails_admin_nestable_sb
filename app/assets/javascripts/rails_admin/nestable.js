@@ -5,7 +5,7 @@
         minDepth: 2,
         minDragDepth: 2
     });
-    $("#rails_admin_nestable .btn").click(function(){
+    $("#save").click(function(){
         var tree_nodes = $("#tree_nodes");
         var tree_url = tree_nodes.data('update-path');
         var tree_data = $("#tree_nodes").nestable('serialize');
